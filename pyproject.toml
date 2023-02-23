@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "ares-sc2-starter-bot"
+version = "0.1.0"
+description = ""
+authors = []
+readme = "README.md"
+packages = [{include = "ares_sc2_starter_bot"}]
+
+[tool.poetry.dependencies]
+python = ">=3.9, <3.10"
+ares-sc2 = { path = "ares-sc2", develop = false }
+black = "^23.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
