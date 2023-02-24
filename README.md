@@ -17,6 +17,16 @@ Install - this will install dependencies and create a new isolated virtual envir
 
 `poetry install`
 
+Compile cython code:
+
+`cd ares-sc2`
+
+`python build.py build_ext --inplace`
+
+Go back to root directory
+
+`cd ..`
+
 Run:
 
 `poetry run python run.py`
