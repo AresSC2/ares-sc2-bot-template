@@ -62,9 +62,12 @@ For PyCharm intellisense to work correctly:
  - Right-click `ares-sc2/src` -> Mark Directory as -> Sources Root
 ![Alt text](img/img3.png "a title")
 
-
-
+   
 ## Update `ares-sc2`:
+### Revert local changes to ares-sc2
+`git submodule deinit -f .`
+`git submodule update --init`
+### Update
 `git submodule update --init --recursive --remote`
 
 ## Format code:
