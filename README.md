@@ -1,5 +1,7 @@
 # ares-sc2-starter-bot
 
+[Documentation](https://aressc2.github.io/ares-sc2/index.html)
+
 ## Installation:
 Prerequisites, ensure these are installed before proceeding:
 - Python 3.9+ 
@@ -9,6 +11,8 @@ Prerequisites, ensure these are installed before proceeding:
 - [Maps](https://sc2ai.net/wiki/maps/)
 
 ### Windows
+If you have a non-standard starcraft installation, please adjust `MAPS_PATH` in `run.py`
+
 Clone, don't forget `--recursive`:
 
 `git clone --recursive https://github.com/AresSC2/ares-sc2-starter-bot.git`
@@ -30,6 +34,9 @@ Go back to root directory
 Run:
 
 `poetry run python run.py`
+
+### Linux
+Not currently tested but steps above should be similar. `MAPS_PATH` in `run.py` will need to be changed
 
 ### PyCharm
 
@@ -65,10 +72,18 @@ For PyCharm intellisense to work correctly:
    
 ## Update `ares-sc2`:
 ### Revert local changes to ares-sc2
+
 `git submodule deinit -f .`
+
 `git submodule update --init`
+
 ### Update
+
 `git submodule update --init --recursive --remote`
+
+`cd ares-sc2`
+
+`python build.py build_ext --inplace`
 
 ## Format code:
 `black .`
