@@ -8,9 +8,8 @@ import asyncio
 import logging
 
 import aiohttp
-from sc2.client import Client
-
 import sc2
+from sc2.client import Client
 from sc2.protocol import ConnectionAlreadyClosed
 
 

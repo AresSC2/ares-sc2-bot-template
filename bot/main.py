@@ -1,9 +1,8 @@
 from typing import Optional
 
+from ares import AresBot
 from sc2.data import Result
 from sc2.unit import Unit
-
-from ares import AresBot
 
 
 class MyBot(AresBot):
@@ -22,7 +21,7 @@ class MyBot(AresBot):
         await super(MyBot, self).on_step(iteration)
 
         # step logic here ...
-        print(f"Calling from my custom bot on iteration number {iteration}")
+        pass
 
     """
     Can use `python-sc2` hooks as usual, but make a call the inherited method in the superclass

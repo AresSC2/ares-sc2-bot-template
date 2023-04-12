@@ -2,6 +2,11 @@
 # Use this to override those values
 # Can add own unique config options here if desired
 
+# Custom values not used by ares
+MyBotName: MyBotName
+MyBotRace: Random
+########################
+
 UseData: False
 Debug: False
 GameStep: 2

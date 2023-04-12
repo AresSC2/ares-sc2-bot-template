@@ -17,23 +17,21 @@ Clone, don't forget `--recursive`:
 
 `git clone --recursive https://github.com/AresSC2/ares-sc2-starter-bot.git`
 
-Install - this will install dependencies and create a new isolated virtual environment:
+Install - this will install dependencies, compile cython, and create a new isolated virtual environment:
 
 `poetry install`
 
-Compile cython code:
+#### Run:
 
-`cd ares-sc2`
-
-`python build.py build_ext --inplace`
-
-Go back to root directory
-
-`cd ..`
-
-Run:
+Optionally set your bot name and race in `config.yml`
 
 `poetry run python run.py`
+
+#### Activating the build runner
+Use the example `protoss_builds.yml` as a starting point, rename this file as necessary. If playing as
+Random you will need a separate file for each race you want to use the build runner with. in the `Builds`
+section of this file start creating as OpeningBuildOrder. 
+[Read the docs here for more info](https://aressc2.github.io/ares-sc2/tutorials.html#build-runner-system)
 
 ### Linux
 Not currently tested but steps above should be similar. `MAPS_PATH` in `run.py` will need to be changed
@@ -81,9 +79,8 @@ For PyCharm intellisense to work correctly:
 
 `git submodule update --init --recursive --remote`
 
-`cd ares-sc2`
-
-`python build.py build_ext --inplace`
+`poetry install`
 
 ## Format code:
 `black .`
+`isort .`
