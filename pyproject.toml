@@ -10,6 +10,7 @@ packages = [{include = "ares_sc2_starter_bot"}]
 python = ">=3.9, <3.10"
 ares-sc2 = { path = "ares-sc2", develop = false }
 black = "^23.1.0"
+isort = "^5.12.0"
 
 [build-system]
 requires = ["poetry-core"]
