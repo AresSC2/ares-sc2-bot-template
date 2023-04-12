@@ -33,6 +33,12 @@ Random you will need a separate file for each race you want to use the build run
 section of this file start creating as OpeningBuildOrder. 
 [Read the docs here for more info](https://aressc2.github.io/ares-sc2/tutorials.html#build-runner-system)
 
+#### Start developing
+Open up `bot/main.py` and have fun! 
+
+A `ares-sc2` bot is a [python-sc2](https://github.com/BurnySc2/python-sc2) bot by default, so any examples or
+documentation in that repo will be relevant here too.
+
 ### Linux
 Not currently tested but steps above should be similar. `MAPS_PATH` in `run.py` will need to be changed
 
