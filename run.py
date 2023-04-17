@@ -19,7 +19,7 @@ from bot.main import MyBot
 from ladder import run_ladder_game
 
 # change if non default setup / linux
-# if having issues with this, remove and configure `map_list` below manually
+# if having issues with this, modify `map_list` below manually
 MAPS_PATH: str = "C:\\Program Files (x86)\\StarCraft II\\Maps"
 CONFIG_FILE: str = "config.yml"
 MAP_FILE_EXT: str = "SC2Map"
@@ -56,6 +56,15 @@ def main():
             for p in Path(MAPS_PATH).glob(f"*.{MAP_FILE_EXT}")
             if p.is_file()
         ]
+        # alternative example code if finding the map path is problematic
+        # map_list: List[str] = [
+        #     "BerlingradAIE",
+        #     "InsideAndOutAIE",
+        #     "MoondanceAIE",
+        #     "StargazersAIE",
+        #     "WaterfallAIE",
+        #     "HardwireAIE",
+        # ]
 
         random_race = random.choice([Race.Zerg, Race.Terran, Race.Protoss])
         print("Starting local game...")
@@ -72,4 +81,3 @@ def main():
 # Start game
 if __name__ == "__main__":
     main()
-

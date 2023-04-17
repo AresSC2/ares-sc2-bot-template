@@ -16,7 +16,7 @@ class MyBot(AresBot):
             specified elsewhere
         """
         super().__init__(game_step_override)
-        
+
     async def on_step(self, iteration: int) -> None:
         await super(MyBot, self).on_step(iteration)
 
