@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = []
 readme = "README.md"
-packages = [{include = "ares_sc2_starter_bot"}]
+packages = [{include = "ares-sc2/src/ares"}]
 
 [tool.poetry.dependencies]
 python = ">=3.9, <3.10"
