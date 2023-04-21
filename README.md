@@ -72,17 +72,9 @@ For PyCharm intellisense to work correctly:
 
    
 ## Update `ares-sc2`:
-### Revert local changes to ares-sc2
+This may take a minute or two
 
-`git submodule deinit -f .`
-
-`git submodule update --init`
-
-### Update
-
-`git submodule update --init --recursive --remote`
-
-`poetry install`
+`python update_ares.py`
 
 ## Format code:
 `black .`
