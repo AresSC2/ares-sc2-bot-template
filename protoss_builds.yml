@@ -46,9 +46,11 @@ BuildChoices:
 
 Builds:
     DummyOpening:
+        # if setting to true, remove worker steps from build order
+        ConstantWorkerProduction: False
         OpeningBuildOrder:
-            # Example: ['worker', 'worker', 'supply', 'worker', 'chrono @ nexus',
-            #           'worker', 'gateway', 'worker', 'expand', 'worker', 'zealot']
+            # Example: ['12 worker', '13 worker', '14 supply', '14 worker', '15 chrono @ nexus',
+            #           '15 worker', '16 gateway']
             # See docs: https://aressc2.github.io/ares-sc2/tutorials.html#build-runner-system
             []
 
