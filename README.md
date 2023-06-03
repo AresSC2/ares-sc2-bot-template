@@ -4,7 +4,7 @@
 
 ## Installation:
 Prerequisites, ensure these are installed before proceeding:
-- Python 3.9+ 
+- Python 3.11 
 - [Poetry](https://python-poetry.org/)
 - [Git](https://git-scm.com/)
 - [Starcraft 2](https://starcraft2.com/en-gb/)
