@@ -124,7 +124,7 @@ frozenlist = ">=1.1.0"
 
 [[package]]
 name = "ares-sc2"
-version = "0.12.0"
+version = "0.13.0"
 description = ""
 optional = false
 python-versions = ">=3.11, <3.12"
@@ -241,7 +241,7 @@ scipy = "^1.7.1"
 type = "git"
 url = "https://github.com/august-k/python-sc2"
 reference = "develop"
-resolved_reference = "8a7e0087559505225d3841a41c9b08d59a22fb28"
+resolved_reference = "374105b2559084241c6030db75137e717f59e52e"
 
 [[package]]
 name = "charset-normalizer"

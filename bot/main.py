@@ -1,8 +1,6 @@
 from typing import Optional
 
 from ares import AresBot
-from sc2.data import Result
-from sc2.unit import Unit
 
 
 class MyBot(AresBot):
