@@ -123,30 +123,8 @@ files = [
 frozenlist = ">=1.1.0"
 
 [[package]]
-name = "ares"
-version = "0.14.0"
-description = ""
-optional = false
-python-versions = ">=3.11, <3.12"
-files = []
-develop = false
-
-[package.dependencies]
-burnysc2 = {git = "https://github.com/august-k/python-sc2", branch = "develop"}
-cython = "^0.29.33"
-PyYAML = "6.0"
-scikit-learn = "^1.2.2"
-tqdm = "^4.64.1"
-
-[package.source]
-type = "git"
-url = "https://github.com/AresSC2/ares-sc2"
-reference = "build/ares-sc2"
-resolved_reference = "dc3163e6d61553d7a2da7796f2dddce9406d5a5b"
-
-[[package]]
 name = "ares-sc2"
-version = "0.16.0"
+version = "0.16.1"
 description = ""
 optional = false
 python-versions = ">=3.11, <3.12"
@@ -1090,4 +1068,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11, <3.12"
-content-hash = "283da3fcbede7d178b618aac7f22d57cc239ddb75b97846ba2cc8b63a2701156"
+content-hash = "f119db2c5c88b86947e95e3066d786aef999d4befed225deeb82f6bad187ca3d"
