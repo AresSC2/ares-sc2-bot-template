@@ -46,8 +46,8 @@ BuildChoices:
 
 Builds:
     DummyOpening:
-        # if setting to true, remove worker steps from build order
-        ConstantWorkerProduction: False
+        # Build constant workers till x supply
+        ConstantWorkerProductionTill: 0
         OpeningBuildOrder:
             # Example: ['12 worker', '13 worker', '14 supply', '14 worker', '15 chrono @ nexus',
             #           '15 worker', '16 gateway']
