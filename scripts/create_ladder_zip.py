@@ -39,7 +39,7 @@ else:
 
 ZIP_DIRECTORIES: Dict[str, Dict] = {
     "bot": {"zip_all": True, "folder_to_zip": "bot"},
-    "ares-sc2": {"zip_all": True, "folder_to_zip": "ares-sc2"},
+    "ares-sc2": {"zip_all": True, "folder_to_zip": ""},
     "python-sc2": {"zip_all": False, "folder_to_zip": "sc2"},
 }
 
@@ -52,6 +52,8 @@ def zip_dir(dir_path, zip_file):
     @return:
     """
     for root, _, files in walk(dir_path):
+        if "ares-sc2/build" in root or "ares-sc2/dist" in root:
+            continue
         for file in files:
             if file.lower().endswith(FILETYPES_TO_IGNORE):
                 continue
