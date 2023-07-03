@@ -1,0 +1,31 @@
+on:
+  push:
+    branches: [ main, feat/ladder-zip-workflow ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # check-out repo
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+      # install poetry
+      - name: Install poetry
+        run: pipx install poetry==1.5
+      # set-up python with cache
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'poetry'
+      # install requirements (including dev dependencies)
+      - name: Install requirements
+        run: poetry install
+      - name: Compile ladder zip
+        run: poetry python scripts/create_ladder_zip.py
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ladder-zip
+          path: out/bot.zip

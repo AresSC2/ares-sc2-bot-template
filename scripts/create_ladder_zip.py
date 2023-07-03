@@ -17,7 +17,7 @@ import pathlib
 import yaml
 
 MY_BOT_NAME: str = "MyBotName"
-ZIPFILE_NAME: str = "Bot.zip"
+ZIPFILE_NAME: str = "bot.zip"
 
 CONFIG_FILE: str = "config.yml"
 ZIP_FILES: List[str] = [
@@ -183,7 +183,8 @@ if __name__ == "__main__":
     run("git clone https://github.com/august-k/python-sc2", shell=True)
 
     # get name of bot from config if possible (otherwise use default name)
-    zipfile_name = get_zipfile_name()
+    # zipfile_name = get_zipfile_name()
+    zipfile_name = ZIPFILE_NAME
     print("Setting up poetry environment...")
     # ensure env is setup and dependencies are installed
     p = Popen(["poetry", "install"], cwd=f"{ROOT_DIRECTORY}")
