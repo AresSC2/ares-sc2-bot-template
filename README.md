@@ -42,7 +42,8 @@ documentation in that repo will be relevant here too.
 ### Uploading to [AiArena](https://www.sc2ai.com)
 Included in the repository is a convenient script named `scripts/create_ladder_zip.py`. However, it is important to note that the AIarena ladder infrastructure operates specifically on Linux-based systems. Due to the dependency of ares-sc2 on cython, it is necessary to execute this script on a Linux environment in order to generate Linux binaries.
 
-To streamline this process, a GitHub workflow has been integrated into this repository. Upon each push to the main branch, the `create_ladder_zip.py` script is automatically executed on a Debian-based system. As a result, a compressed artifact named `ladder-zip.zip` is generated, facilitating the subsequent upload to AIarena. To access the generated file, navigate to the Actions tab and refer to the Artifacts section.
+To streamline this process, a GitHub workflow has been integrated into this repository when pushing to `main`. Upon each push to the main branch, the `create_ladder_zip.py` script is automatically executed on a Debian-based system. As a result, a compressed artifact named `ladder-zip.zip` is generated, facilitating the subsequent upload to AIarena. To access the generated file, navigate to the Actions tab, click on an Action and refer to the Artifacts section. Please note this may take a few
+minutes after pusing to the `main` branch.
 
 ### PyCharm
 
