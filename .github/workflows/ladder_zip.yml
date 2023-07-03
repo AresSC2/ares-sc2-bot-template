@@ -25,7 +25,7 @@ jobs:
       - name: Install requirements
         run: poetry install --no-root
       - name: Compile ladder zip
-        run: python scripts/create_ladder_zip.py
+        run: poetry run python scripts/create_ladder_zip.py
       - uses: actions/upload-artifact@v3
         with:
           name: ladder-zip
