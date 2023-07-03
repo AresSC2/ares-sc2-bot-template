@@ -20,6 +20,8 @@ jobs:
         with:
           python-version: '3.11'
           cache: 'poetry'
+      - name: Install requirements
+        run: poetry install --no-root
       - name: Compile ladder zip
         run: python scripts/create_ladder_zip.py
       - uses: actions/upload-artifact@v3
