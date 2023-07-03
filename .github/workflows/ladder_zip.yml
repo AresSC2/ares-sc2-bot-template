@@ -26,7 +26,10 @@ jobs:
         run: poetry install --no-root
       - name: Compile ladder zip
         run: poetry run python scripts/create_ladder_zip.py
+      - uses: montudor/action-zip@v1
+        with:
+          args: unzip -qq bot.zip -d out
       - uses: actions/upload-artifact@v3
         with:
           name: ladder-zip
-          path: bot.zip
+          path: out
