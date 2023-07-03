@@ -21,7 +21,7 @@ jobs:
           python-version: '3.11'
           cache: 'poetry'
       - name: Compile ladder zip
-        run: poetry python scripts/create_ladder_zip.py
+        run: python scripts/create_ladder_zip.py
       - uses: actions/upload-artifact@v3
         with:
           name: ladder-zip
