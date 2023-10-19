@@ -41,7 +41,7 @@ ZIP_DIRECTORIES: Dict[str, Dict] = {
     "bot": {"zip_all": True, "folder_to_zip": "bot"},
     "ares-sc2": {"zip_all": True, "folder_to_zip": ""},
     "python-sc2": {"zip_all": False, "folder_to_zip": "sc2"},
-    "sc2-helper": {"zip_all": False, "folder_to_zip": "sc2_helper"},
+    # "sc2_helper": {"zip_all": True, "folder_to_zip": "sc2_helper"},
     "SC2MapAnalysis": {"zip_all": False, "folder_to_zip": "map_analyzer"},
 }
 
@@ -190,27 +190,27 @@ if __name__ == "__main__":
     run("cd SC2MapAnalysis && git checkout develop", shell=True)
     run("cd ..", shell=True)
     # clone sc2-helper
-    run("git clone https://github.com/danielvschoor/sc2-helper", shell=True)
-    # install rust build tools
-    run("curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh", shell=True)
-    # activate Rust
-    run("source $HOME/.cargo/env", shell=True)
-    # compile rust code
-    run("cd sc2-helper && cargo build --release", shell=True)
-    run("cd ..", shell=True)
+    # run("git clone https://github.com/danielvschoor/sc2-helper", shell=True)
+    # # install rust build tools
+    # run("curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh", shell=True)
+    # # activate Rust
+    # run("source $HOME/.cargo/env", shell=True)
+    # # compile rust code
+    # run("cd sc2-helper && cargo build --release", shell=True)
+    # run("cd ..", shell=True)
 
     """
     Move the sc2 helper binary to correct place
     """
-    source_file = "sc2-helper/target/release/libsc2_helper.so"
-    # Define the destination directory path
-    destination_directory = "sc2-helper/sc2_helper/"
-    # Define the new name for the file
-    new_file_name = "sc2_helper.so"
-    # Combine the destination directory path and the new file name
-    new_file_path = os.path.join(destination_directory, new_file_name)
-    # Move the file to the destination directory with the new name
-    shutil.move(source_file, new_file_path)
+    # source_file = "sc2-helper/target/release/libsc2_helper.so"
+    # # Define the destination directory path
+    # destination_directory = "sc2-helper/sc2_helper/"
+    # # Define the new name for the file
+    # new_file_name = "sc2_helper.so"
+    # # Combine the destination directory path and the new file name
+    # new_file_path = os.path.join(destination_directory, new_file_name)
+    # # Move the file to the destination directory with the new name
+    # shutil.move(source_file, new_file_path)
 
     # print structure out for debugging purposes
     current_directory = os.getcwd()
