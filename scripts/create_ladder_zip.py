@@ -3,14 +3,14 @@ Zips the relevant files and directories so that Eris
 can be uploaded to ladder and tournaments.
 TODO: check all files and folders are present before zipping
 """
+import os
 import platform
+import shutil
+import site
+import zipfile
 from os import path, remove, walk
 from subprocess import Popen, run
 from typing import Dict, List, Tuple
-import shutil
-import os
-import zipfile
-import site
 
 import yaml
 
@@ -41,6 +41,8 @@ ZIP_DIRECTORIES: Dict[str, Dict] = {
     "bot": {"zip_all": True, "folder_to_zip": "bot"},
     "ares-sc2": {"zip_all": True, "folder_to_zip": ""},
     "python-sc2": {"zip_all": False, "folder_to_zip": "sc2"},
+    "sc2-helper": {"zip_all": False, "folder_to_zip": "sc2_helper"},
+    "SC2MapAnalysis": {"zip_all": False, "folder_to_zip": "map_analyzer"},
 }
 
 
@@ -93,7 +95,7 @@ def zip_files_and_directories(zipfile_name: str) -> None:
     zip_file.close()
 
 
-def get_sc2_library(library_name, project_directory):
+def get_library_from_site_packages(library_name, project_directory):
     # Find the site packages directory
 
     site_packages_dir = site.getsitepackages()[0]
@@ -180,7 +182,47 @@ if __name__ == "__main__":
     if os.path.exists(destination_directory):
         shutil.rmtree(destination_directory, ignore_errors=False, onerror=on_error)
 
+    # clone python-sc2
     run("git clone https://github.com/august-k/python-sc2", shell=True)
+    # clone map-analyzer
+    run("git clone https://github.com/spudde123/SC2MapAnalysis", shell=True)
+    # checkout develop branch in map-analyzer
+    run("cd SC2MapAnalysis && git checkout develop", shell=True)
+    run("cd ..", shell=True)
+    # clone sc2-helper
+    run("git clone https://github.com/danielvschoor/sc2-helper", shell=True)
+    # install rust build tools
+    run("curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh", shell=True)
+    # activate Rust
+    run("source $HOME/.cargo/env", shell=True)
+    # compile rust code
+    run("cd sc2-helper && cargo build --release", shell=True)
+    run("cd ..", shell=True)
+
+    """
+    Move the sc2 helper binary to correct place
+    """
+    source_file = "sc2-helper/target/release/libsc2_helper.so"
+    # Define the destination directory path
+    destination_directory = "sc2-helper/sc2_helper/"
+    # Define the new name for the file
+    new_file_name = "sc2_helper.so"
+    # Combine the destination directory path and the new file name
+    new_file_path = os.path.join(destination_directory, new_file_name)
+    # Move the file to the destination directory with the new name
+    shutil.move(source_file, new_file_path)
+
+    # print structure out for debugging purposes
+    current_directory = os.getcwd()
+    print("Current Directory:", current_directory)
+
+    # List all files and directories in the current directory
+    for item in os.listdir(current_directory):
+        item_path = os.path.join(current_directory, item)
+        if os.path.isdir(item_path):
+            print("Directory:", item)
+        elif os.path.isfile(item_path):
+            print("File:", item)
 
     # get name of bot from config if possible (otherwise use default name)
     # zipfile_name = get_zipfile_name()
@@ -212,6 +254,12 @@ if __name__ == "__main__":
     print(f"Cleaning up...")
 
     destination_directory = os.path.join("./", "python-sc2")
+    if os.path.exists(destination_directory):
+        shutil.rmtree(destination_directory, onerror=on_error)
+    destination_directory = os.path.join("./", "sc2-helper")
+    if os.path.exists(destination_directory):
+        shutil.rmtree(destination_directory, onerror=on_error)
+    destination_directory = os.path.join("./", "SC2MapAnalysis")
     if os.path.exists(destination_directory):
         shutil.rmtree(destination_directory, onerror=on_error)
 
