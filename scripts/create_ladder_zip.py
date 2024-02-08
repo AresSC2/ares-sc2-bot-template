@@ -1,6 +1,6 @@
 """
-Zips the relevant files and directories so that Eris
-can be uploaded to ladder and tournaments.
+Zips the relevant files and directories so that Bot can be updated
+to ladder or tournaments.
 TODO: check all files and folders are present before zipping
 """
 import os
@@ -31,7 +31,7 @@ ZIP_FILES: List[str] = [
     "zerg_builds.yaml",
 ]
 if platform.system() == "Windows":
-    FILETYPES_TO_IGNORE: Tuple = (".c", ".so", "pyx")
+    FILETYPES_TO_IGNORE: Tuple = (".c", ".so", "pyx", "pyi")
     ROOT_DIRECTORY = "./"
 else:
     FILETYPES_TO_IGNORE: Tuple = (".c", ".pyd", "pyx", "pyi")
@@ -43,6 +43,7 @@ ZIP_DIRECTORIES: Dict[str, Dict] = {
     "python-sc2": {"zip_all": False, "folder_to_zip": "sc2"},
     # "sc2_helper": {"zip_all": True, "folder_to_zip": "sc2_helper"},
     "SC2MapAnalysis": {"zip_all": False, "folder_to_zip": "map_analyzer"},
+    "cython-extensions-sc2": {"zip_all": False, "folder_to_zip": "cython_extensions"},
 }
 
 
@@ -186,9 +187,11 @@ if __name__ == "__main__":
     run("git clone https://github.com/august-k/python-sc2", shell=True)
     # clone map-analyzer
     run("git clone https://github.com/spudde123/SC2MapAnalysis", shell=True)
-    # checkout develop branch in map-analyzer
-    run("cd SC2MapAnalysis && git checkout develop", shell=True)
-    run("cd ..", shell=True)
+    # cython extensions
+    run("git clone https://github.com/AresSC2/cython-extensions-sc2", shell=True)
+    run("cd cython-extensions-sc2 && poetry build", shell=True)
+
+
     # clone sc2-helper
     # run("git clone https://github.com/danielvschoor/sc2-helper", shell=True)
     # # install rust build tools
