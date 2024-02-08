@@ -8,7 +8,7 @@ jobs:
     steps:
       # check-out repo
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
       - name: Checkout submodules
@@ -18,7 +18,7 @@ jobs:
         run: pipx install poetry
       # set-up python with cache
       - name: Setup Python 3.11
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'poetry'
@@ -31,7 +31,7 @@ jobs:
       - uses: montudor/action-zip@v1
         with:
           args: unzip -qq bot.zip -d out
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: ladder-zip
           path: out
