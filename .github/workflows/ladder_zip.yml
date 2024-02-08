@@ -16,14 +16,14 @@ jobs:
       # install poetry
       - name: Install poetry
         run: pipx install poetry
-      - name: Update pip
-        run: poetry run pip install -U pip
       # set-up python with cache
       - name: Setup Python 3.11
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
           cache: 'poetry'
+      - name: Update pip
+        run: poetry run pip install -U pip
       - name: Install requirements
         run: poetry install --no-root
       - name: Compile ladder zip
