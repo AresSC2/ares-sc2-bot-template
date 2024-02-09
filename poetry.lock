@@ -245,14 +245,14 @@ files = [
 
 [[package]]
 name = "cython-extensions-sc2"
-version = "0.3.3"
+version = "0.3.4"
 description = ""
 optional = false
 python-versions = ">=3.11,<3.13"
 files = [
-    {file = "cython_extensions_sc2-0.3.3-cp311-cp311-macosx_12_0_x86_64.whl", hash = "sha256:7950e35f358303f01a207f9680e7113ae11b08e560aa27dc68f6720c1846b3ef"},
-    {file = "cython_extensions_sc2-0.3.3-cp311-cp311-manylinux_2_35_x86_64.whl", hash = "sha256:d71a7b87c39336c3e9aea4bdc04e88e1897ffdedfb0a476285a96253b23bb23a"},
-    {file = "cython_extensions_sc2-0.3.3-cp311-cp311-win_amd64.whl", hash = "sha256:cef3e1b8f3f0cfe0deb7fbd2c3ffb5ff0d84c166818aab2a89556178eb99fd9e"},
+    {file = "cython_extensions_sc2-0.3.4-cp311-cp311-macosx_12_0_x86_64.whl", hash = "sha256:a346c431bbb4e413fd1ed8148834ce5070c8e72ae376162fd54dcac78a9f93e0"},
+    {file = "cython_extensions_sc2-0.3.4-cp311-cp311-manylinux_2_35_x86_64.whl", hash = "sha256:71b5dc0c1ae96da43e0f28a6104eb4bb84a8141b55863637b41217f8d0214630"},
+    {file = "cython_extensions_sc2-0.3.4-cp311-cp311-win_amd64.whl", hash = "sha256:a23b6d00087b4dce507ccbb0677bb75e91d4094a453f4492eff8be9d7d3c7066"},
 ]
 
 [[package]]
