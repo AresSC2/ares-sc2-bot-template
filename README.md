@@ -120,7 +120,7 @@ For PyCharm intellisense to work correctly: - Right-click `ares-sc2/src` -> Ma
 
 ## Installing Poetry on Linux
 
-To get Poetry in Linux to run some Linux distros you may need to perform the following
+To get Poetry to run on some Linux distros you may need to perform the following
 
 ```bash
 python3 --version
