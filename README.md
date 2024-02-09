@@ -6,7 +6,7 @@
 ---
 # Installation
 
-If you're looking to build your own StarCraft II bot, starting with the `ares-sc2-bot-template` let's you get up and running quickly. This template uses the  Ares-sc2 framework which uilds upon the python-sc2 framework, enhancing its capabilities for bot development in StarCraft II. You can find it [here](https://aressc2.github.io/ares-sc2/index.html). 
+If you're looking to build your own StarCraft II bot, starting with the `ares-sc2-bot-template` let's you get up and running quickly. This template uses the  Ares-sc2 framework which builds upon the python-sc2 framework, enhancing its capabilities for bot development in StarCraft II. You can find it [here](https://aressc2.github.io/ares-sc2/index.html). 
 
 ### Prerequisites
 
