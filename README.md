@@ -150,4 +150,4 @@ This may take a minute or two
 `isort .`
 
 --- 
-***Interested in contributing*** to `ares-sc2`? Take a look at setting up a local dev environment [here instead.](https://aressc2.github.io/contributing/index.html#setting-up-a-local-development-environment)
+***Interested in contributing*** to `ares-sc2`? Take a look at setting up a local dev environment [here instead.](https://aressc2.github.io/ares-sc2/contributing/index.html)
