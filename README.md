@@ -149,5 +149,15 @@ This may take a minute or two
 
 `isort .`
 
+# FAQ
+
+I got the Following Error `Directory .../ares-sc2-bot-template/ares-sc2 for ares-sc2 does not seem to be a Python package`
+
+a: This means you're missing the ares-sc2 sub module 
+```bash
+git submodule update --init
+git submodule update --init --recursive --remote
+```
+
 --- 
 ***Interested in contributing*** to `ares-sc2`? Take a look at setting up a local dev environment [here instead.](https://aressc2.github.io/ares-sc2/contributing/index.html)
