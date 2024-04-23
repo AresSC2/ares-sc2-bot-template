@@ -3,8 +3,8 @@
 # Can add own unique config options here if desired
 
 # Custom values not used by ares
-MyBotName: AnglerBot
-MyBotRace: Protoss
+MyBotName: MyBotName
+MyBotRace: Random
 ########################
 
 UseData: False
