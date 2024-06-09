@@ -111,7 +111,7 @@ frozenlist = ">=1.1.0"
 
 [[package]]
 name = "ares-sc2"
-version = "2.14.0"
+version = "2.14.1"
 description = ""
 optional = false
 python-versions = ">=3.11, <3.12"
