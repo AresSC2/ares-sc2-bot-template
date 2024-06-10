@@ -81,11 +81,43 @@ If everything has worked thus far, open up `bot/main.py` and delve into the ex
 
 An `ares-sc2` bot is a [python-sc2](https://github.com/BurnySc2/python-sc2) bot by default, meaning any examples or documentation from that repository equally relevant here.
 
-### Uploading to [AiArena](https://www.sc2ai.com/)
+## Uploading to [AiArena](https://www.sc2ai.com/)
 
-Included in the repository is a convenient script named `scripts/create_ladder_zip.py`. However, it is important to note that the AIarena ladder infrastructure operates specifically on Linux-based systems. Due to the dependency of ares-sc2 on cython, it is necessary to execute this script on a Linux environment in order to generate Linux binaries.
+### Generating a ladder zip
+Included in the repository is a convenient script named `scripts/create_ladder_zip.py`. 
+However, it is important to note that the AIarena ladder infrastructure operates specifically 
+on Linux-based systems. Due to the dependency of ares-sc2 on cython, it is necessary to execute 
+this script on a Linux environment in order to generate Linux binaries.
 
-To streamline this process, a GitHub workflow has been integrated into this repository when pushing to `main` on your GitHub repository (if you previously created a template from the [starter-bot](https://github.com/AresSC2/ares-sc2-starter-bot)). Upon each push to the main branch, the `create_ladder_zip.py` script is automatically executed on a Debian-based system. As a result, a compressed artifact named `ladder-zip.zip` is generated, facilitating the subsequent upload to AIarena. To access the generated file, navigate to the Actions tab, click on an Action and refer to the Artifacts section. Please note this may take a few minutes after pusing to the `main` branch.
+To streamline this process, a GitHub workflow has been integrated into this repository when
+pushing to `main` on your GitHub repository (if you previously created a template
+from the [starter-bot](https://github.com/AresSC2/ares-sc2-starter-bot)). 
+Upon each push to the main branch, the `create_ladder_zip.py` script is automatically
+executed on a Debian-based system. As a result, a compressed artifact 
+named `ladder-zip.zip` is generated, facilitating the subsequent upload to AIarena. 
+To access the generated file, navigate to the Actions tab, click on an Action and refer to the 
+Artifacts section. Please note this may take a few minutes after pusing to the `main` branch.
+
+Ladder zips can also be built on a debian based OS, with docker or via WSL.
+
+### Auto upload to aiarena
+There is an optional step in the Github workflow that allows the `ladder-zip.zip` artifact to
+automatically be uploaded to the [AiArena ladder](https://www.sc2ai.com) which is disabled by default.
+Please follow these steps to enable it:
+1. Set `AutoUploadToAiarena: True` in `config.yml`
+2. Go to [AiArena ladder](https://www.sc2ai.com) and set up an account if you do not already have one.
+3. If required set up a new bot via the AiArena website.
+4. Go to the profile of your bot, and take note of your bot id. It will be present in the URL.
+5. Next go to Profile -> View API Token, save this token string somewhere.
+6. Now go to the Github repo for your bot, navigate to `Settings -> Secrets and variables -> Actions`
+7. Under Repository secrets create two new secrets, ensure secret names are exactly as specified here:
+```
+Name: UPLOAD_API_TOKEN Secret: <aiarena_api_token>
+Name: UPLOAD_BOT_ID Secret: <bot_id>
+```
+
+Now on your next push to `main` a ladder zip artifact will be built and automatically shipped
+to aiarena. Feel free to amend this workflow to suit your preferences as required.
 
 ---
 # Additional
