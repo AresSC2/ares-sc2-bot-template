@@ -100,24 +100,24 @@ Artifacts section. Please note this may take a few minutes after pusing to the 
 
 Ladder zips can also be built on a debian based OS, with docker or via WSL.
 
-### Auto upload to aiarena
-There is an optional step in the Github workflow that allows the `ladder-zip.zip` artifact to
-automatically be uploaded to the [AiArena ladder](https://www.sc2ai.com) which is disabled by default.
-Please follow these steps to enable it:
-1. Set `AutoUploadToAiarena: True` in `config.yml`
-2. Go to [AiArena ladder](https://www.sc2ai.com) and set up an account if you do not already have one.
-3. If required set up a new bot via the AiArena website.
-4. Go to the profile of your bot, and take note of your bot id. It will be present in the URL.
-5. Next go to Profile -> View API Token, save this token string somewhere.
-6. Now go to the Github repo for your bot, navigate to `Settings -> Secrets and variables -> Actions`
-7. Under Repository secrets create two new secrets, ensure secret names are exactly as specified here:
-```
-Name: UPLOAD_API_TOKEN Secret: <aiarena_api_token>
-Name: UPLOAD_BOT_ID Secret: <bot_id>
-```
+### Upload to aiarena
+The GitHub workflow includes an optional step to automatically upload the ladder-zip.zip artifact from 
+the previous step to the [AiArena ladder](https://www.sc2ai.com/). This feature is disabled by default. 
+To enable it, follow these steps:
 
-Now on your next push to `main` a ladder zip artifact will be built and automatically shipped
-to aiarena. Feel free to amend this workflow to suit your preferences as required.
+1. Set `AutoUploadToAiarena: True` in `config.yml`.
+2. Visit the AiArena ladder and create an account if you don't have one.
+3. If necessary, set up a new bot via the AiArena website.
+4. Navigate to your bot's profile and note your bot ID, which can be found in the URL.
+5. Go to `Profile -> View API Token` and save the token string.
+6. In your bot's GitHub repository, navigate to `Settings -> Secrets and variables -> Actions`.
+7. Create two new secrets with the following exact names, using the api token and bot id from earlier:
+
+UPLOAD_API_TOKEN: <aiarena_api_token> <br />
+UPLOAD_BOT_ID: <bot_id>
+
+After completing these steps, the next push to the main branch will build the ladder zip artifact 
+and automatically upload it to AiArena. You can customize this workflow as needed.
 
 ---
 # Additional
