@@ -35,3 +35,8 @@ jobs:
         with:
           name: ladder-zip
           path: out
+      - name: Upload to AIArena
+        env:
+          UPLOAD_API_TOKEN: ${{ secrets.UPLOAD_API_TOKEN }}
+          UPLOAD_BOT_ID: ${{ secrets.UPLOAD_BOT_ID }}
+        run: poetry run python scripts/upload_to_ai_arena.py

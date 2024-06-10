@@ -11,6 +11,7 @@ ares-sc2 = { path = "ares-sc2", develop = false }
 python = ">=3.11, <3.12"
 black = "^23.1.0"
 isort = "^5.12.0"
+requests = "^2.32.3"
 
 [build-system]
 requires = ["poetry-core"]
