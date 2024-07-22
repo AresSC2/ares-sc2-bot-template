@@ -111,7 +111,7 @@ frozenlist = ">=1.1.0"
 
 [[package]]
 name = "ares-sc2"
-version = "2.19.2"
+version = "2.20.0"
 description = ""
 optional = false
 python-versions = ">=3.11, <3.12"
@@ -216,7 +216,7 @@ scipy = "^1.7.1"
 type = "git"
 url = "https://github.com/august-k/python-sc2"
 reference = "develop"
-resolved_reference = "7dc97b2bbe44b4894373ba7c2caad2d2f5bec403"
+resolved_reference = "4d415de8a0b70fca69363e611cd02a8ff72a1f2f"
 
 [[package]]
 name = "certifi"
