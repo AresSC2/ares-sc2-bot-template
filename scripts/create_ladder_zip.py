@@ -31,9 +31,23 @@ ZIP_FILES: List[str] = [
     "zerg_builds.yaml",
 ]
 if platform.system() == "Windows":
+    EXCLUDE: list[str] = [
+        "ares-sc2\\build",
+        "ares-sc2\\dist",
+        "ares-sc2\\tests",
+        "ares-src\\docs",
+        "map_analyzer\\pickle_gameinfo",
+    ]
     FILETYPES_TO_IGNORE: Tuple = (".c", ".so", "pyx", "pyi")
     ROOT_DIRECTORY = "./"
 else:
+    EXCLUDE: list[str] = [
+        "ares-sc2/build",
+        "ares-sc2/dist",
+        "ares-sc2/tests",
+        "ares-sc2/docs",
+        "map_analyzer/pickle_gameinfo",
+    ]
     FILETYPES_TO_IGNORE: Tuple = (".c", ".pyd", "pyx", "pyi")
     ROOT_DIRECTORY = "./"
 
@@ -55,7 +69,7 @@ def zip_dir(dir_path, zip_file):
     @return:
     """
     for root, _, files in walk(dir_path):
-        if "ares-sc2/build" in root or "ares-sc2/dist" in root:
+        if any(exclude in root for exclude in EXCLUDE):
             continue
         for file in files:
             if file.lower().endswith(FILETYPES_TO_IGNORE):
@@ -190,7 +204,6 @@ if __name__ == "__main__":
     # cython extensions
     run("git clone https://github.com/AresSC2/cython-extensions-sc2", shell=True)
     run("cd cython-extensions-sc2 && poetry build", shell=True)
-
 
     # clone sc2-helper
     # run("git clone https://github.com/danielvschoor/sc2-helper", shell=True)

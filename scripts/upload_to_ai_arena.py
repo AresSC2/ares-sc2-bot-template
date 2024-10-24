@@ -32,6 +32,7 @@ def get_bot_description() -> str:
         f"# {bot_name}\n\n" "Made with [ares-sc2](https://github.com/AresSC2/ares-sc2)"
     )
 
+
 def retrieve_value_from_config(string: str) -> Union[str, bool, None]:
     __user_config_location__: str = path.abspath(".")
     user_config_path: str = path.join(__user_config_location__, CONFIG_FILE)
@@ -41,7 +42,6 @@ def retrieve_value_from_config(string: str) -> Union[str, bool, None]:
             config: dict = yaml.safe_load(config_file)
             if string in config:
                 return config[string]
-
 
 
 if __name__ == "__main__":
