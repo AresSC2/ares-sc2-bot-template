@@ -1,10 +1,10 @@
 from subprocess import run
 
 if __name__ == "__main__":
-    run("git submodule deinit -f .")
-    run("git submodule update --init")
-    run("git submodule update --init --recursive --remote")
-    run("poetry remove ares-sc2")
+    run(["git", "submodule", "deinit", "-f", "."])
+    run(["git", "submodule", "update", "--init"])
+    run(["git", "submodule", "update", "--init", "--recursive", "--remote"])
+    run(["poetry", "remove", "ares-sc2"])
 
     with open("pyproject.toml") as f:
         contents = f.readlines()
@@ -23,5 +23,5 @@ if __name__ == "__main__":
         contents = "".join(contents)
         f.write(contents)
 
-    run("poetry lock --no-update")
-    run("poetry install")
+    run(["poetry", "lock", "--no-update"])
+    run(["poetry", "install"])
