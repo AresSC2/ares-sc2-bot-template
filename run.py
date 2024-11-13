@@ -2,7 +2,9 @@ import random
 import sys
 from os import path
 from pathlib import Path
+import platform
 from typing import List
+from loguru import logger
 
 from sc2 import maps
 from sc2.data import AIBuild, Difficulty, Race
@@ -18,9 +20,23 @@ import yaml
 from bot.main import MyBot
 from ladder import run_ladder_game
 
+plt = platform.system()
 # change if non default setup / linux
 # if having issues with this, modify `map_list` below manually
-MAPS_PATH: str = "C:\\Program Files (x86)\\StarCraft II\\Maps"
+if plt == "Windows":
+    MAPS_PATH: str = "C:\\Program Files (x86)\\StarCraft II\\Maps"
+elif plt == "Darwin":
+    MAPS_PATH: str = ""
+elif plt == "Linux":
+    # path would look a bit like this on linux after installing
+    # SC2 via lutris
+    MAPS_PATH: str = (
+        "/home/<username>/Games/battlenet/drive_c/Program Files (x86)/StarCraft II/maps"
+    )
+else:
+    logger.error(f"{plt} not supported")
+    sys.exit()
+
 CONFIG_FILE: str = "config.yml"
 MAP_FILE_EXT: str = "SC2Map"
 MY_BOT_NAME: str = "MyBotName"
@@ -56,14 +72,24 @@ def main():
             for p in Path(MAPS_PATH).glob(f"*.{MAP_FILE_EXT}")
             if p.is_file()
         ]
+        if len(map_list) == 0:
+            logger.error("Can't find maps, game aborted")
+            logger.info(
+                f"\nLooking for maps in {MAPS_PATH} but didn't find anything. \n"
+                f"If this path is correct please ensure maps are present. \n"
+                f"If this path is incorrect please edit the `MAPS_PATH` in `run.py` \n"
+                f"Tip: If you're using linux, update <username> in the MAPS_PATH \n"
+            )
+            return
+
         # alternative example code if finding the map path is problematic
         # map_list: List[str] = [
-        #     "BerlingradAIE",
-        #     "InsideAndOutAIE",
-        #     "MoondanceAIE",
-        #     "StargazersAIE",
-        #     "WaterfallAIE",
-        #     "HardwireAIE",
+        #     "Equilibrium513AIE",
+        #     "Gresvan513AIE",
+        #     "GoldenAura513AIE",
+        #     "HardLead513AIE",
+        #     "Oceanborn513AIE",
+        #     "SiteDelta513AIE"
         # ]
 
         random_race = random.choice([Race.Zerg, Race.Terran, Race.Protoss])
