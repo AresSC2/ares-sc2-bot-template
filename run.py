@@ -26,7 +26,7 @@ plt = platform.system()
 if plt == "Windows":
     MAPS_PATH: str = "C:\\Program Files (x86)\\StarCraft II\\Maps"
 elif plt == "Darwin":
-    MAPS_PATH: str = ""
+    MAPS_PATH: str = "/Applications/StarCraft II/Maps"
 elif plt == "Linux":
     # path would look a bit like this on linux after installing
     # SC2 via lutris
