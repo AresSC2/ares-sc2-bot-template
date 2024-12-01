@@ -8,7 +8,7 @@ packages = [{include = "ares-sc2/src/ares"}]
 
 [tool.poetry.dependencies]
 ares-sc2 = { path = "ares-sc2", develop = false }
-python = ">=3.11, <3.12"
+python = ">=3.11, <3.13"
 black = "^23.1.0"
 isort = "^5.12.0"
 requests = "^2.32.3"
