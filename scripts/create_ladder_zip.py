@@ -200,7 +200,7 @@ if __name__ == "__main__":
     # clone python-sc2
     run("git clone https://github.com/august-k/python-sc2", shell=True)
     # clone map-analyzer
-    run("git clone https://github.com/spudde123/SC2MapAnalysis", shell=True)
+    run("git clone https://github.com/raspersc2/SC2MapAnalysis", shell=True)
     # cython extensions
     run("git clone https://github.com/AresSC2/cython-extensions-sc2", shell=True)
     run("cd cython-extensions-sc2 && poetry build", shell=True)
