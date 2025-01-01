@@ -124,7 +124,7 @@ frozenlist = ">=1.1.0"
 
 [[package]]
 name = "ares-sc2"
-version = "2.30.0"
+version = "2.30.2"
 description = ""
 optional = false
 python-versions = ">=3.10, <3.13"
@@ -582,7 +582,7 @@ numpy = "^2.0.0"
 type = "git"
 url = "https://github.com/raspersc2/SC2MapAnalysis"
 reference = "HEAD"
-resolved_reference = "bcda693b54c4ecd7fa9a837ea29516e228e35aa7"
+resolved_reference = "4f903cd2986fe2a9688ec89559c9cd3e27ea5725"
 
 [[package]]
 name = "mpyq"
