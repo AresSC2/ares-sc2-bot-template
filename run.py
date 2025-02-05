@@ -31,7 +31,7 @@ elif plt == "Linux":
     # path would look a bit like this on linux after installing
     # SC2 via lutris
     MAPS_PATH: str = (
-        "/home/<username>/Games/battlenet/drive_c/Program Files (x86)/StarCraft II/maps"
+        "~/<username>/Games/battlenet/drive_c/Program Files (x86)/StarCraft II/Maps"
     )
 else:
     logger.error(f"{plt} not supported")
@@ -73,24 +73,23 @@ def main():
             if p.is_file()
         ]
         if len(map_list) == 0:
-            logger.error("Can't find maps, game aborted")
+            logger.error(f"Can't find maps, please check `MAPS_PATH` in `run.py'")
+            logger.info("Trying back up option")
             logger.info(
                 f"\nLooking for maps in {MAPS_PATH} but didn't find anything. \n"
                 f"If this path is correct please ensure maps are present. \n"
                 f"If this path is incorrect please edit the `MAPS_PATH` in `run.py` \n"
-                f"Tip: If you're using linux, update <username> in the MAPS_PATH \n"
+                f"Tip: If you're using linux, MAPS_PATH will definitely need updating\n"
             )
-            return
 
-        # alternative example code if finding the map path is problematic
-        # map_list: List[str] = [
-        #     "Equilibrium513AIE",
-        #     "Gresvan513AIE",
-        #     "GoldenAura513AIE",
-        #     "HardLead513AIE",
-        #     "Oceanborn513AIE",
-        #     "SiteDelta513AIE"
-        # ]
+            # see if user has any recent ladder maps
+            map_list: List[str] = [
+                "AbyssalReefAIE",
+                "AutomationAIE",
+                "EphemeronAIE",
+                "InterloperAIE",
+                "ThunderbirdAIE",
+            ]
 
         random_race = random.choice([Race.Zerg, Race.Terran, Race.Protoss])
         print("Starting local game...")
