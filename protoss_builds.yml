@@ -8,8 +8,10 @@
 # Save the game opening and result to disk?
 # Setting to `True` allows Ares to select a new opening after defeat
 UseData: True
-# How should we choose a build? Cycle is the only option for now
-BuildSelection: Cycle
+# How should we choose a build?
+# Use `Cycle` for a simple build cycle on defeat
+# Use `WinrateBased` to use winrates to select a build
+BuildSelection: WinrateBased
 # For each Race / Opponent ID choose a build selection
 BuildChoices:
     # test_123 is active if Debug: True (set via a `config.yml` file)
