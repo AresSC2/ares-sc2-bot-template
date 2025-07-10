@@ -12,7 +12,7 @@ If you're looking to build your own StarCraft II bot, starting with the `ares-sc
 
 Before proceeding, ensure the following prerequisites are installed:
 
-- [Python 3.11](https://www.python.org/downloads/release/python-3110/)
+- [Python 3.11 / 3.12](https://www.python.org/downloads/release/python-3110/)
 - [Poetry](https://python-poetry.org/) 
 - [Git](https://git-scm.com/)
 - [Starcraft 2](https://starcraft2.com/en-gb/) 
