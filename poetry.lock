@@ -138,7 +138,7 @@ typing-extensions = {version = ">=4.2", markers = "python_version < \"3.13\""}
 
 [[package]]
 name = "ares-sc2"
-version = "2.43.0"
+version = "2.43.1"
 description = ""
 optional = false
 python-versions = ">=3.10, <3.13"
