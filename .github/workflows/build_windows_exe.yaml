@@ -2,7 +2,9 @@ name: Build Windows Executable
 
 on:
   push:
-    branches: [ dev ]
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
@@ -23,16 +25,41 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install poetry
 
+    - name: Configure Poetry
+      run: |
+        poetry config virtualenvs.create false
+
     - name: Install dependencies
       run: |
-        poetry install
+        poetry install --no-interaction --with dev
+        python -m pip install pyinstaller
+
+    - name: Debug Info
+      run: |
+        echo "Current directory:"
+        pwd
+        echo "Directory contents:"
+        dir
+        echo "Python path:"
+        python -c "import sys; print(sys.executable)"
+        echo "PyInstaller path:"
+        where pyinstaller
 
     - name: Build executable
+      shell: cmd
       run: |
-        poetry run python scripts/create_pyinstaller_executable.py
+        poetry run pyinstaller --name ares ^
+          --add-data "ares;ares" ^
+          --add-data "config;config" ^
+          --add-data "requirements.txt;." ^
+          --add-data "poetry.lock;." ^
+          --add-data "pyproject.toml;." ^
+          run.py
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v3
       with:
         name: windows-executable
-        path: dist/*.exe
+        path: |
+          dist/*.exe
+          dist/ares/*
