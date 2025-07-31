@@ -23,10 +23,6 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install poetry
 
-    - name: Configure Poetry
-      run: |
-        poetry config virtualenvs.create false
-
     - name: Install dependencies
       run: |
         poetry install --no-interaction
@@ -38,9 +34,9 @@ jobs:
         echo "Directory contents:"
         dir
         echo "Python path:"
-        python -c "import sys; print(sys.executable)"
+        poetry run python -c "import sys; print(sys.executable)"
         echo "PyInstaller path:"
-        where pyinstaller
+        poetry run where pyinstaller
 
     - name: Build executable
       working-directory: D:\a\ares-sc2-bot-template\ares-sc2-bot-template\scripts
@@ -53,6 +49,7 @@ jobs:
           "$rootDir\run.py" `
           -n "aresbot" `
           --distpath "$rootDir\publish"
+
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
