@@ -35,8 +35,6 @@ jobs:
         dir
         echo "Python path:"
         poetry run python -c "import sys; print(sys.executable)"
-        echo "PyInstaller path:"
-        poetry run where pyinstaller
 
     - name: Build executable
       working-directory: D:\a\ares-sc2-bot-template\ares-sc2-bot-template\scripts
