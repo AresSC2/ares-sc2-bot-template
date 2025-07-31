@@ -45,6 +45,7 @@ jobs:
 
     - name: Build executable
       run: |
+        cd scripts
         poetry run python scripts/create_pyinstaller_executable.py
 
     - name: Upload artifact
