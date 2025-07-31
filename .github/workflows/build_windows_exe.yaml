@@ -44,9 +44,15 @@ jobs:
         where pyinstaller
 
     - name: Build executable
-      working-directory: D:\a\ares-sc2-bot-template\ares-sc2-bot-template
+      working-directory: D:\a\ares-sc2-bot-template\ares-sc2-bot-template\scripts
       run: |
-        poetry run python scripts/create_pyinstaller_executable.py
+        $rootDir = "D:\a\ares-sc2-bot-template\ares-sc2-bot-template"
+        poetry run pyinstaller -y --onefile `
+          --add-data "$rootDir\ares-sc2;ares-sc2/" `
+          --add-data "$rootDir\bot;bot/" `
+          "$rootDir\run.py" `
+          -n "aresbot" `
+          --distpath "$rootDir\publish"
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
