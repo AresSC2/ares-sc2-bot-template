@@ -29,8 +29,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        poetry install --no-interaction --with dev
-        python -m pip install pyinstaller pyyaml
+        poetry install --no-interaction
 
     - name: Debug Info
       run: |
@@ -50,6 +49,7 @@ jobs:
         poetry run pyinstaller -y --onefile `
           --add-data "$rootDir\ares-sc2;ares-sc2/" `
           --add-data "$rootDir\bot;bot/" `
+          --collect-all ares-sc2 `
           "$rootDir\run.py" `
           -n "aresbot" `
           --distpath "$rootDir\publish"
