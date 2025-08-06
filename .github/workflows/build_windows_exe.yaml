@@ -1,8 +1,14 @@
 name: Build Windows Executable
 
 on:
-  push:
-    branches: [ dev ]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for building'
+        required: false
+        default: 'Manual build'
+        type: string
+
 
 jobs:
   build:
@@ -16,7 +22,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.11'
+        python-version: '3.12'
 
     - name: Install Poetry
       run: |
@@ -38,24 +44,15 @@ jobs:
         poetry run python -c "import sys; print(sys.executable)"
 
     - name: Build executable
-      working-directory: D:\a\ares-sc2-bot-template\ares-sc2-bot-template\scripts
       run: |
-        $rootDir = "D:\a\ares-sc2-bot-template\ares-sc2-bot-template"
-        poetry run pyinstaller -y --onefile `
-          --add-data "$rootDir\ares-sc2;ares-sc2/" `
-          --add-data "$rootDir\bot;bot/" `
-          --collect-all ares-sc2 `
-          "$rootDir\run.py" `
-          -n "aresbot" `
-          --distpath "$rootDir\publish"
-
+        poetry run python scripts/create_pyinstaller_exe.py
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: windows-executable
         path: |
-          dist/*.exe
-          dist/ares/*
           publish/*.exe
-          publish/ares/*
+          publish/ladderbots.json
+          publish/*.yml
+          publish/*.yaml

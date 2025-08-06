@@ -12,7 +12,6 @@ import sys
 # Check for Windows
 if not platform.system() == 'Windows':
     print("Error: This script is intended to run only on Windows.")
-    print("For Linux builds, please use the create_ladder_zip.py script instead.")
     sys.exit(1)
 
 FILE_NAME: str = "aresbot"
