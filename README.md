@@ -119,6 +119,40 @@ UPLOAD_BOT_ID: <bot_id>
 After completing these steps, the next push to the main branch will build the ladder zip artifact 
 and automatically upload it to AI Arena. You can customize this workflow as needed.
 
+## Generating a realtime executable for human vs bot
+
+### Via a Windows machine
+It's possible for other humans to play your bot via the SC2AIApp, you can [find it here](https://versusai.net/how-to-play-against-the-probots/).
+However, we can't expect other humans to have a full python dev setup to run our bot. Therefore, we can 
+use PyInstaller to bundle a self-contained executable of our bot.
+
+On a Windows machine try running:
+
+```
+poetry run python scripts/create_pyinstaller_exe.py
+```
+
+This will generate a `yourbot.exe`, `ladderbots.json` and copy any build files such as `protoss_builds.yml`.
+You will require all these files when setting up your bot with SC2AIApp.
+
+Inside `SC2AIApp/Bots` you should create a new folder for your bot, the name should precisely match the bot name
+ inside `ladderbots.json`. After which you should be able to run the app and play vs your bot.
+Check how some of the existing bots are set up if you get stuck or feel free to ask on the SC2AI discord server.
+
+### Via Github actions
+This is useful if you don't have access to a Windows machine.
+
+This repository contains a github workflow named `Build Windows Executable` that you can run manually on
+your Github Repo.
+
+On your bot repo go to `Actions`
+Choose `Build Windows Executable` from available workflows
+Click `Run workflow`
+
+Give the workflow a few minutes to complete.
+Click on the running action and on successful completion there will be a `windows-executable` artifact to download.
+This will contain all necessary files to setup your bot with [SC2AiApp](https://versusai.net/how-to-play-against-the-probots/).
+
 ---
 # Additional
 ## PyCharm
@@ -134,21 +168,16 @@ Open this project in PyCharm and navigate to:
 File | Settings | Project: | Python Interpreter
 
 - Click `Add Interpreter`, then `Add Local Interpreter`
-
-![Alt text](https://aressc2.github.io/ares-sc2/tutorials/img/img1.png "a title")
-
 - Select `Poetry Environment`, and choose `Existing Environment`
 - Navigate to the path of the poetry environment from the terminal earlier, and select `Scripts/python.exe`
-
-![Alt text](https://aressc2.github.io/ares-sc2/tutorials/img/img2.png "a title")
 
 Now when opening terminal in PyCharm, the environment will already be active. New run configurations can be setup, and they will already be configured to use this environment.
 
 #### Marking sources root
 
-For PyCharm intellisense to work correctly: - Right-click `ares-sc2/src` -> Mark Directory as -> Sources Root
+For PyCharm intellisense to work correctly: In the `Project` panel right-click `ares-sc2/src` folder  -> Mark Directory as -> Sources Root
 
-![Alt text](https://aressc2.github.io/ares-sc2/tutorials/img/img3.png "a title")
+## VSCode
 
 ## Installing Poetry on Linux
 
