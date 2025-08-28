@@ -150,7 +150,7 @@ files = [
 
 [[package]]
 name = "ares-sc2"
-version = "2.46.3"
+version = "2.46.4"
 description = ""
 optional = false
 python-versions = ">=3.10, <3.13"
