@@ -17,7 +17,7 @@ class MyBot(AresBot):
 
     async def on_step(self, iteration: int) -> None:
         await super(MyBot, self).on_step(iteration)
-        print(f"Iteration: {iteration}")
+        # bot logic here ...
 
     """
     Can use `python-sc2` hooks as usual, but make a call the inherited method in the superclass
