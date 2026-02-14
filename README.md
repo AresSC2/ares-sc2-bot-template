@@ -81,6 +81,14 @@ If everything has worked thus far, open up `bot/main.py` and delve into the ex
 
 An `ares-sc2` bot is a [python-sc2](https://github.com/BurnySc2/python-sc2) bot by default, meaning any examples or documentation from that repository equally relevant here.
 
+## Ares development tutorials and guide videos
+A guide created by [VersusAI](https://www.youtube.com/@Vers-AI) featuring how to use the combat simulator. This tutorial 
+also covers how to use common functionality in the ares-sc2 framework, such as unit role assignment, squad management and combat maneuvers.
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=dAhpVo-rmJU" target="_blank">
+ <img src="http://img.youtube.com/vi/dAhpVo-rmJU/mqdefault.jpg" alt="Watch the video" width="360" height="270" border="10" />
+</a>
+
+
 ## Uploading to [AI Arena](https://www.aiarena.net/)
 
 ### Generating a ladder zip
