@@ -84,6 +84,9 @@ An `ares-sc2` bot is a [python-sc2](https://github.com/BurnySc2/python-sc2) 
 ## Ares development tutorials and guide videos
 A guide created by [VersusAI](https://www.youtube.com/@Vers-AI) featuring how to use the combat simulator. This tutorial 
 also covers how to use common functionality in the ares-sc2 framework, such as unit role assignment, squad management and combat maneuvers.
+
+<br>
+
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=dAhpVo-rmJU" target="_blank">
  <img src="http://img.youtube.com/vi/dAhpVo-rmJU/mqdefault.jpg" alt="Watch the video" width="360" height="270" border="10" />
 </a>
