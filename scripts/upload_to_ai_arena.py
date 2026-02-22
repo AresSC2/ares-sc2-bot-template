@@ -9,6 +9,9 @@ API_TOKEN_ENV: str = "UPLOAD_API_TOKEN"
 BOT_ID_ENV: str = "UPLOAD_BOT_ID"
 CONFIG_FILE: str = "config.yml"
 AUTO_UPLOAD_TO_AIARENA: str = "AutoUploadToAiarena"
+BOT_ZIP_PUBLICLY_DOWNLOADABLE: str = "BotZipPubliclyDownloadable"
+BOT_DATA_PUBLICLY_DOWNLOADABLE: str = "BotDataPubliclyDownloadable"
+BOT_DATA_ENABLED: str = "BotDataEnabled"
 MY_BOT_NAME: str = "MyBotName"
 ZIPFILE_NAME: str = "bot.zip"
 
@@ -57,14 +60,26 @@ if __name__ == "__main__":
 
     else:
         logger.info("Uploading bot")
+        bot_zip_public = retrieve_value_from_config(BOT_ZIP_PUBLICLY_DOWNLOADABLE)
+        if bot_zip_public is None:
+            bot_zip_public = False
+
+        bot_data_public = retrieve_value_from_config(BOT_DATA_PUBLICLY_DOWNLOADABLE)
+        if bot_data_public is None:
+            bot_data_public = False
+
+        bot_data_enabled = retrieve_value_from_config(BOT_DATA_ENABLED)
+        if bot_data_enabled is None:
+            bot_data_enabled = True
+
         with open(ZIPFILE_NAME, "rb") as bot_zip:
             request_headers = {
                 "Authorization": f"Token {TOKEN}",
             }
             request_data = {
-                "bot_zip_publicly_downloadable": True,
-                "bot_data_publicly_downloadable": False,
-                "bot_data_enabled": False,
+                "bot_zip_publicly_downloadable": bot_zip_public,
+                "bot_data_publicly_downloadable": bot_data_public,
+                "bot_data_enabled": bot_data_enabled,
                 "wiki_article_content": get_bot_description(),
             }
             request_files = {

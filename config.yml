@@ -8,6 +8,9 @@ MyBotRace: Protoss
 # setting ture allows auto upload to aiareana (https://aiarena.net/) on push to `main` branch
 # see tutorial on readme before setting to True
 AutoUploadToAiarena: False
+BotZipPubliclyDownloadable: False
+BotDataPubliclyDownloadable: False
+BotDataEnabled: True
 ########################
 
 UseData: False
