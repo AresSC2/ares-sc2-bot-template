@@ -1,4 +1,3 @@
-
 import shutil
 import subprocess
 from os import path, remove
@@ -10,7 +9,7 @@ import json
 import sys
 
 # Check for Windows
-if not platform.system() == 'Windows':
+if not platform.system() == "Windows":
     print("Error: This script is intended to run only on Windows.")
     sys.exit(1)
 
@@ -19,10 +18,14 @@ MY_BOT_NAME: str = "MyBotName"  # Changed to match config.yml key
 MY_BOT_RACE: str = "MyBotRace"  # Added to match config.yml key
 CONFIG_FILE: str = "config.yml"
 BUILD_FILES = [
-    'zerg_builds.yml', 'zerg_builds.yaml',
-    'protoss_builds.yml', 'protoss_builds.yaml',
-    'terran_builds.yml', 'terran_builds.yaml'
+    "zerg_builds.yml",
+    "zerg_builds.yaml",
+    "protoss_builds.yml",
+    "protoss_builds.yaml",
+    "terran_builds.yml",
+    "terran_builds.yaml",
 ]
+
 
 class PyInstaller:
     def __init__(self):
@@ -35,27 +38,47 @@ class PyInstaller:
             "pyinstaller",
             "-y",
             "--onefile",
-            "--add-data", f"{self.project_root}/config.yml;.",
-            "--add-data", f"{self.project_root}/ares-sc2/src/ares;ares/",
-            "--add-data", f"{self.project_root}/bot;bot/",
-            "--add-data", f"{self.project_root}/ares-sc2/sc2_helper;sc2_helper/",
+            "--add-data",
+            f"{self.project_root}/config.yml;.",
+            "--add-data",
+            f"{self.project_root}/ares-sc2/src/ares;ares/",
+            "--add-data",
+            f"{self.project_root}/bot;bot/",
+            "--add-data",
+            f"{self.project_root}/ares-sc2/sc2_helper;sc2_helper/",
             f"{self.project_root}/run.py",
-            "-n", FILE_NAME,
-            "--distpath", path.join(self.project_root, "publish"),
-            "--collect-all", "sc2",
-            "--collect-all", "cython_extensions",
-            "--collect-all", "scipy",
-            "--collect-all", "numpy",
-            "--collect-all", "map_analyzer",
-            "--hidden-import", "sc2.paths",
-            "--hidden-import", "cython_extensions",
-            "--hidden-import", "scipy.signal",
-            "--hidden-import", "scipy",
-            "--hidden-import", "map_analyzer",
-            "--hidden-import", "sc2_helper",
-            "--hidden-import", "sc2_helper.combat_simulator",
-            "--paths", site_packages,
-            "--paths", f"{self.project_root}/ares-sc2/src",
+            "-n",
+            FILE_NAME,
+            "--distpath",
+            path.join(self.project_root, "publish"),
+            "--collect-all",
+            "sc2",
+            "--collect-all",
+            "cython_extensions",
+            "--collect-all",
+            "scipy",
+            "--collect-all",
+            "numpy",
+            "--collect-all",
+            "map_analyzer",
+            "--hidden-import",
+            "sc2.paths",
+            "--hidden-import",
+            "cython_extensions",
+            "--hidden-import",
+            "scipy.signal",
+            "--hidden-import",
+            "scipy",
+            "--hidden-import",
+            "map_analyzer",
+            "--hidden-import",
+            "sc2_helper",
+            "--hidden-import",
+            "sc2_helper.combat_simulator",
+            "--paths",
+            site_packages,
+            "--paths",
+            f"{self.project_root}/ares-sc2/src",
         ]
 
     def get_config_values(self) -> tuple[str, str]:
@@ -87,13 +110,13 @@ class PyInstaller:
                     "RootPath": "./",
                     "FileName": exe_name,
                     "Args": "-O",
-                    "Debug": True
+                    "Debug": True,
                 }
             }
         }
 
         ladderbots_path = path.join(output_dir, "ladderbots.json")
-        with open(ladderbots_path, 'w') as f:
+        with open(ladderbots_path, "w") as f:
             json.dump(ladderbots_data, f, indent=2)
         print(f"Created ladderbots.json at {ladderbots_path}")
 
@@ -102,7 +125,9 @@ class PyInstaller:
         print("Copying build files...")
         for build_file in BUILD_FILES:
             # Search for the file in the project root and its subdirectories
-            matches = glob.glob(path.join(self.project_root, '**', build_file), recursive=True)
+            matches = glob.glob(
+                path.join(self.project_root, "**", build_file), recursive=True
+            )
             for match in matches:
                 try:
                     shutil.copy2(match, output_dir)
