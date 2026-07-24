@@ -1,59 +1,57 @@
 # This file is optional and here as an example of how to activate the build runner
 # FEEL FREE TO DELETE!!
 
-# If playing as a different race, make a file similar to this but change filename:
-# `zerg_builds.yml` or `terran_builds.yml`
+# Rename file based on your bot's Race:
+# `terran_builds.yml`, `zerg_builds.yml`, `protoss_builds.yml`
+# If playing Random, all files are needed.
 
+# To allow ares to select a new opening after defeat, 
+# set 'UseData: True' in 'config.yml'
 
-# Save the game opening and result to disk?
-# Setting to `True` allows Ares to select a new opening after defeat
-UseData: True
 # How should we choose a build?
+# Use `WinrateBased` to select builds based on past win rates
 # Use `Cycle` for a simple build cycle on defeat
-# Use `WinrateBased` to use winrates to select a build
 BuildSelection: WinrateBased
-# For each Race / Opponent ID choose a build selection
+
+# For each `opponent_id` or opponent's race, list build openers to be selected from
 BuildChoices:
-    # test_123 is active if Debug: True (set via a `config.yml` file)
-    test_123:
-        BotName: Test
-        Cycle:
-            - DummyOpening
 
-    Protoss:
-        BotName: ProtossRace
-        Cycle:
-            - DummyOpening
-
-    Random:
-        BotName: RandomRace
-        Cycle:
-            - DummyOpening
-
-    Terran:
-        BotName: TerranRace
-        Cycle:
-            - DummyOpening
-
-    Zerg:
-        BotName: ZergRace
-        Cycle:
-            - DummyOpening
-
-    # Can also use specific opponent ids (overrides race options above)
+    # Builds based on `opponent_id`
+    # Takes precedence over opponent's race
     a_bot_opponent_id_from_aiarena:
         BotName: QueenBot
         Cycle:
             - DummyOpening
 
+    # Builds based on opponent's race
+    # If `opponent_id` is not found
+    Terran:
+        Cycle:
+            - DummyOpening
+
+    Zerg:
+        Cycle:
+            - DummyOpening
+
+    Protoss:
+        Cycle:
+            - DummyOpening
+
+    # test_123 is active if Debug: True (`config.yml`)
+    test_123:
+        Cycle:
+            - DummyOpening
+
+# See docs: https://aressc2.github.io/ares-sc2/tutorials/build_runner.html
 Builds:
     DummyOpening:
-        # Build constant workers till x supply
+        # Build constant workers until # supply
         ConstantWorkerProductionTill: 0
-        OpeningBuildOrder:
-            # Example: ['12 worker', '13 worker', '14 supply', '14 worker', '15 chrono @ nexus',
-            #           '15 worker', '16 gateway']
-            # See docs: https://aressc2.github.io/ares-sc2/tutorials.html#build-runner-system
-            []
-
-
+        OpeningBuildOrder: # Example [
+            # 12 worker,
+            # 12 supply,
+            # 14 worker,
+            # 15 chrono @ nexus,
+            # 15 worker,
+            # 16 gateway
+            # ]
