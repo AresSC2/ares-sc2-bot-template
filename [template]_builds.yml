@@ -26,19 +26,23 @@ BuildChoices:
     # Builds based on opponent's race
     # If `opponent_id` is not found
     Terran:
+        BotName: TerranRace
         Cycle:
             - DummyOpening
 
     Zerg:
+        BotName: ZergRace
         Cycle:
             - DummyOpening
 
     Protoss:
+        BotName: ProtossRace
         Cycle:
             - DummyOpening
 
     # test_123 is active if Debug: True (`config.yml`)
     test_123:
+        BotName: Test
         Cycle:
             - DummyOpening
 
