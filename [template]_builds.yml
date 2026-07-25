@@ -1,0 +1,86 @@
+# This file is optional and here as an example of how to activate the build runner
+# FEEL FREE TO DELETE!!
+
+# Rename file based on your bot's Race:
+# `terran_builds.yml`, `zerg_builds.yml`, `protoss_builds.yml`
+# If playing Random, all files are needed.
+
+# Allows ares to select a new opening after defeat.
+UseData: True  # Overwrites `UseData:` in `config.yml`
+
+# How should we choose a build?
+# Use `WinrateBased` to select builds based on past win rates
+# Use `Cycle` for a simple build cycle on defeat
+BuildSelection: WinrateBased
+
+# For each `opponent_id` or opponent's race, list build openers to be selected from
+BuildChoices:
+
+    # Builds based on `opponent_id`
+    # Takes precedence over opponent's race
+    a_bot_opponent_id_from_aiarena:
+        BotName: QueenBot
+        Cycle:
+            - DummyOpening
+
+    # Builds based on opponent's race
+    # If `opponent_id` is not found
+    Terran:
+        BotName: TerranRace
+        Cycle:
+            - DummyOpening
+            - DummyOpening2
+
+    Zerg:
+        BotName: ZergRace
+        Cycle:
+            - DummyOpening
+            - DummyOpening2
+
+    Protoss:
+        BotName: ProtossRace
+        Cycle:
+            - DummyOpening
+            - DummyOpening2
+
+    Random:
+        BotName: RandomRace
+        Cycle:
+            - DummyOpening
+            - DummyOpening2
+
+    # test_123 is active if Debug: True (`config.yml`)
+    test_123:
+        BotName: Test
+        Cycle:
+            - DummyOpening
+            - DummyOpening2
+
+# See docs: https://aressc2.github.io/ares-sc2/tutorials/build_runner.html
+Builds:
+    DummyOpening:
+        # Build constant workers until # supply
+        ConstantWorkerProductionTill: 0
+        # Multiple formats accepted:
+            # Bulleted list:
+        OpeningBuildOrder: # Example:
+        # - 12 worker
+        # - 12 supply
+        # - 14 worker
+        # - 15 chrono @ nexus
+        # - 15 worker
+        # - 16 gateway
+
+    DummyOpening2:
+        ConstantWorkerProductionTill: 0
+            # ...or encased by [], separated by commas
+        OpeningBuildOrder: # Example: [
+        # 12 worker,
+        # '12 supply',
+        # "14 worker",
+        # 15 chrono @ nexus,
+        # '15 worker',
+        # "16 gateway",
+        # ]
+        # Unquoted, single-quoted ('str'), or double-quoted strings ("str") are all accepted.
+        # Mixing styles within the same list is not recommended for user's sanity.

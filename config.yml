@@ -13,7 +13,7 @@ BotDataPubliclyDownloadable: False
 BotDataEnabled: True
 ########################
 
-UseData: False
+UseData: False  # Overwritten by `UseData:` in `[race]_builds.yml`
 Debug: False
 GameStep: 2
 DebugGameStep: 2
