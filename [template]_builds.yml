@@ -5,8 +5,8 @@
 # `terran_builds.yml`, `zerg_builds.yml`, `protoss_builds.yml`
 # If playing Random, all files are needed.
 
-# To allow ares to select a new opening after defeat, 
-# set 'UseData: True' in 'config.yml'
+# Allows ares to select a new opening after defeat.
+UseData: True  # Overwrites `UseData:` in `config.yml`
 
 # How should we choose a build?
 # Use `WinrateBased` to select builds based on past win rates
@@ -29,33 +29,58 @@ BuildChoices:
         BotName: TerranRace
         Cycle:
             - DummyOpening
+            - DummyOpening2
 
     Zerg:
         BotName: ZergRace
         Cycle:
             - DummyOpening
+            - DummyOpening2
 
     Protoss:
         BotName: ProtossRace
         Cycle:
             - DummyOpening
+            - DummyOpening2
+
+    Random:
+        BotName: RandomRace
+        Cycle:
+            - DummyOpening
+            - DummyOpening2
 
     # test_123 is active if Debug: True (`config.yml`)
     test_123:
         BotName: Test
         Cycle:
             - DummyOpening
+            - DummyOpening2
 
 # See docs: https://aressc2.github.io/ares-sc2/tutorials/build_runner.html
 Builds:
     DummyOpening:
         # Build constant workers until # supply
         ConstantWorkerProductionTill: 0
-        OpeningBuildOrder: # Example [
-            # 12 worker,
-            # 12 supply,
-            # 14 worker,
-            # 15 chrono @ nexus,
-            # 15 worker,
-            # 16 gateway
-            # ]
+        # Multiple formats accepted:
+            # Bulleted list:
+        OpeningBuildOrder: # Example:
+        # - 12 worker
+        # - 12 supply
+        # - 14 worker
+        # - 15 chrono @ nexus
+        # - 15 worker
+        # - 16 gateway
+
+    DummyOpening2:
+        ConstantWorkerProductionTill: 0
+            # ...or encased by [], separated by commas
+        OpeningBuildOrder: # Example: [
+        # 12 worker,
+        # '12 supply',
+        # "14 worker",
+        # 15 chrono @ nexus,
+        # '15 worker',
+        # "16 gateway",
+        # ]
+        # Unquoted, single-quoted ('str'), or double-quoted strings ("str") are all accepted.
+        # Mixing styles within the same list is not recommended for user's sanity.
