@@ -184,19 +184,19 @@ files = [
 
 [[package]]
 name = "anyio"
-version = "4.14.2"
+version = "4.15.1"
 description = "High-level concurrency and networking framework on top of asyncio or Trio"
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "anyio-4.14.2-py3-none-any.whl", hash = "sha256:9f505dda5ac9f0c8309b5e8bd445a8c2bf7246f3ce950121e45ea15bc41d1494"},
-    {file = "anyio-4.14.2.tar.gz", hash = "sha256:cfa139f3ed1a23ee8f88a145ddb5ac7605b8bbfd8592baacd7ce3d8bb4313c7f"},
+    {file = "anyio-4.15.1-py3-none-any.whl", hash = "sha256:6152fdbbf9a77fdec97731721bebf7c4c44f7c29b424b0065826173efc7ed101"},
+    {file = "anyio-4.15.1.tar.gz", hash = "sha256:9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"},
 ]
 
 [package.dependencies]
 idna = ">=2.8"
-typing_extensions = {version = ">=4.5", markers = "python_version < \"3.13\""}
+typing_extensions = {version = ">=4.16.0", markers = "python_version < \"3.15\""}
 
 [package.extras]
 trio = ["trio (>=0.32.0)"]
@@ -216,7 +216,7 @@ files = [
 
 [[package]]
 name = "ares-sc2"
-version = "3.13.0"
+version = "3.13.1"
 description = ""
 optional = false
 python-versions = ">=3.11, <3.13"
@@ -226,7 +226,7 @@ develop = false
 
 [package.dependencies]
 burnysc2 = {git = "https://github.com/august-k/python-sc2", branch = "develop"}
-cython-extensions-sc2 = "^0.16.1"
+cython-extensions-sc2 = "^0.17.0"
 map-analyzer = {git = "https://github.com/spudde123/SC2MapAnalysis", branch = "develop"}
 mypy = ">=1.11"
 PyYAML = "^6.0.2"
@@ -737,6 +737,18 @@ files = [
 colorama = {version = "*", markers = "platform_system == \"Windows\""}
 
 [[package]]
+name = "cloudpickle"
+version = "3.1.2"
+description = "Pickler class to extend the standard pickle.Pickler functionality"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "cloudpickle-3.1.2-py3-none-any.whl", hash = "sha256:9acb47f6afd73f60dc1df93bb801b472f05ff42fa6c84167d25cb206be1fbf4a"},
+    {file = "cloudpickle-3.1.2.tar.gz", hash = "sha256:7fda9eb655c9c230dab534f1983763de5835249750e85fbcef43aaa30a9a2414"},
+]
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 description = "Cross-platform colored terminal text."
@@ -766,27 +778,27 @@ test = ["pytest"]
 
 [[package]]
 name = "cython-extensions-sc2"
-version = "0.16.1"
+version = "0.17.0"
 description = ""
 optional = false
 python-versions = "<3.14,>=3.11"
 groups = ["main"]
 files = [
-    {file = "cython_extensions_sc2-0.16.1-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:01774f603f3fdb622f32f2569f6ae0f048cf5192ee091bc58354b4aa7db46795"},
-    {file = "cython_extensions_sc2-0.16.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:81148fd98fc500c86f2a25c7322dacdd1a4af6d56baf92a7ac483aa67472ba4f"},
-    {file = "cython_extensions_sc2-0.16.1-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:3271d120caa7c8ad9028179310771e3df9104596489c8bfc42ffae6962c97b3c"},
-    {file = "cython_extensions_sc2-0.16.1-cp311-cp311-win32.whl", hash = "sha256:19510dcbf965c7972d2d435cfc37343706726b194db1f5a5dee9378d237b4f71"},
-    {file = "cython_extensions_sc2-0.16.1-cp311-cp311-win_amd64.whl", hash = "sha256:446671b2b3c953a100b07d043630bf823733f9859dd02abb8b7367be6022a91e"},
-    {file = "cython_extensions_sc2-0.16.1-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:8ffc39cae8c831c777d9ddde794fd548f2e9d2d844106d950e0ea5a218241844"},
-    {file = "cython_extensions_sc2-0.16.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:6a54a13c3a6927186b9315b630c2f6d3124039a6f6a20d245a7d2388285d1822"},
-    {file = "cython_extensions_sc2-0.16.1-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:6edd688d84b6e6183aa824f4f3667e11f83a8ea8601bf8077fc59fbd0ededbcb"},
-    {file = "cython_extensions_sc2-0.16.1-cp312-cp312-win32.whl", hash = "sha256:42b9ad4ee4f86ad4805ba031d55b25ba8714df6da316b4be86b5536afe285ebf"},
-    {file = "cython_extensions_sc2-0.16.1-cp312-cp312-win_amd64.whl", hash = "sha256:51e0dfae7b6f1358fc0fdcfa660906e3860d3baf3c252e71b7fc4d30ccc5aca1"},
-    {file = "cython_extensions_sc2-0.16.1-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:53372aeea48e34fffaaa81c3c05a021c316a1d23067752b83efd1d6eb6f0cc3f"},
-    {file = "cython_extensions_sc2-0.16.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:4a9c2e840b25881e0ef9ef3f931c88a939a81358262f670071fa71a3793ad212"},
-    {file = "cython_extensions_sc2-0.16.1-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:041937cf40b57d25f5cdc282721b03f17deabf458f79173a1ba2f287e791ee95"},
-    {file = "cython_extensions_sc2-0.16.1-cp313-cp313-win32.whl", hash = "sha256:ef6ce6cb384ec791d4f8d43d04f7ca8b1f12d0df1119c015d0b95d37b26006ef"},
-    {file = "cython_extensions_sc2-0.16.1-cp313-cp313-win_amd64.whl", hash = "sha256:5dcc110ee8463e095a6f6a542336a33ac658ff4d449d6b718c88bf8682b75d24"},
+    {file = "cython_extensions_sc2-0.17.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:c2c172d00e59f063ff5233b1205e1b81c1befbd19a7d816b359f70f179ef8ffc"},
+    {file = "cython_extensions_sc2-0.17.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:50284632f8867d4e5617ec122a60eed1e9820f9d56ff67444622103b8a8af716"},
+    {file = "cython_extensions_sc2-0.17.0-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:8d31aec613c29e4a282d334c8c98630b48b114cacae6f2ef8dc21c0dc2204a90"},
+    {file = "cython_extensions_sc2-0.17.0-cp311-cp311-win32.whl", hash = "sha256:0068ecef5ceb71f0676498ccc01c716024aeb5f814b35cfcbb521e6f0e0fab32"},
+    {file = "cython_extensions_sc2-0.17.0-cp311-cp311-win_amd64.whl", hash = "sha256:d6e466df9088e1de87be4c0b78611a886d44eeaf24a4a38b1bd94cfd0f18dba7"},
+    {file = "cython_extensions_sc2-0.17.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:724744d8eaee3bc9d42d6384092a562698295aa93a07c826fc6e2b786c41685b"},
+    {file = "cython_extensions_sc2-0.17.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:06a9873d117ad80d2f4911d193ae1b74bc58f29fdbca87546dd68418ec115fc5"},
+    {file = "cython_extensions_sc2-0.17.0-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:024a40f1924ba4e286a775cfa05d65d1a514cab3613ec1ca851fbb3d01553cec"},
+    {file = "cython_extensions_sc2-0.17.0-cp312-cp312-win32.whl", hash = "sha256:f851ffd5ad1cb078ba9456cac821ac780ea9e4f20635b66be4fdc59c41f3a53b"},
+    {file = "cython_extensions_sc2-0.17.0-cp312-cp312-win_amd64.whl", hash = "sha256:777bc32fb8d35562d7d2c84d48cdb0939d40d0e25549e4555b0acbb9dfb2d633"},
+    {file = "cython_extensions_sc2-0.17.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:f4a3c1357a85f59dc6cb4bae97d4582b6eb9ccd6f1870730319b80146a16bc75"},
+    {file = "cython_extensions_sc2-0.17.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:be805d01b9c370069017b8feed4005309af20c397102e3492dc26d0a8bd8a5c8"},
+    {file = "cython_extensions_sc2-0.17.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:95b61b92188c8259e4b7089ccb882b95e435a629c588fab2777aae7fd44b3385"},
+    {file = "cython_extensions_sc2-0.17.0-cp313-cp313-win32.whl", hash = "sha256:47e1e657bb38658b94c6745d0f094a943b0794109867c46d0b0ddfb5df363826"},
+    {file = "cython_extensions_sc2-0.17.0-cp313-cp313-win_amd64.whl", hash = "sha256:99fdcb70bc978b97db1afe45f0b128d9ff3c2e8c372a33e93973881643cceff9"},
 ]
 
 [package.dependencies]
@@ -1137,14 +1149,14 @@ test = ["flaky", "ipyparallel", "pre-commit", "pytest (>=7.0,<10)", "pytest-asyn
 
 [[package]]
 name = "ipython"
-version = "9.16.1"
+version = "9.17.1"
 description = "IPython: Productive Interactive Computing"
 optional = false
 python-versions = ">=3.11"
 groups = ["main"]
 files = [
-    {file = "ipython-9.16.1-py3-none-any.whl", hash = "sha256:4acae635506f6d352d94c4899a19d5f85f8bc4d230932342dca556fdab1c69b4"},
-    {file = "ipython-9.16.1.tar.gz", hash = "sha256:5a3d1f9a47ff216d6cf9cf863124f6a2c1a198d1354c546a4d24a370a283b64c"},
+    {file = "ipython-9.17.1-py3-none-any.whl", hash = "sha256:6d1645743cfd1a07eb695d85aa2b5fa66721f8cbae9431d4049f7084bbf06509"},
+    {file = "ipython-9.17.1.tar.gz", hash = "sha256:8919be8c27f20a6f4423145028063f6637b42a03ce57665bb12015ee1f073529"},
 ]
 
 [package.dependencies]
@@ -1252,15 +1264,22 @@ i18n = ["Babel (>=2.7)"]
 
 [[package]]
 name = "joblib"
-version = "1.5.3"
+version = "1.6.0"
 description = "Lightweight pipelining with Python functions"
 optional = false
-python-versions = ">=3.9"
+python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "joblib-1.5.3-py3-none-any.whl", hash = "sha256:5fc3c5039fc5ca8c0276333a188bbd59d6b7ab37fe6632daa76bc7f9ec18e713"},
-    {file = "joblib-1.5.3.tar.gz", hash = "sha256:8561a3269e6801106863fd0d6d84bb737be9e7631e33aaed3fb9ce5953688da3"},
+    {file = "joblib-1.6.0-py3-none-any.whl", hash = "sha256:3dbbf9f6e4b592a2357b854608e980fe6390d131d7a82f011a377ef2ebef7aba"},
+    {file = "joblib-1.6.0.tar.gz", hash = "sha256:2ccc96785b12046c08fd6d55839c12857831b54a3c1673ffadd2f04bfc4eda03"},
 ]
+
+[package.dependencies]
+cloudpickle = ">=3.0"
+
+[package.extras]
+docs = ["distributed", "lz4", "matplotlib", "numpy", "numpydoc", "pandas", "psutil", "pydata-sphinx-theme", "sphinx", "sphinx-copybutton", "sphinx-design", "sphinx-gallery", "tqdm"]
+test = ["distributed", "lz4", "memory_profiler", "numpy", "pytest", "pytest-asyncio", "pytest-cov", "pytest-run-parallel", "pytest-timeout", "threadpoolctl"]
 
 [[package]]
 name = "json5"
@@ -1334,14 +1353,14 @@ referencing = ">=0.31.0"
 
 [[package]]
 name = "jupyter-builder"
-version = "1.2.2"
+version = "1.2.3"
 description = "JupyterLab build tools"
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "jupyter_builder-1.2.2-py3-none-any.whl", hash = "sha256:6ebcd4c49daf5df6a18068a74a48010406700ed90a76c189fac43eaf85c60c63"},
-    {file = "jupyter_builder-1.2.2.tar.gz", hash = "sha256:b6cea88f58e44b2c5eba96f28d2e0d16fd453d3ca6dc9c4492ff8a1f2e97f601"},
+    {file = "jupyter_builder-1.2.3-py3-none-any.whl", hash = "sha256:c5ea5a7190c2a7b082494abade98eece1b2b5bd5dbd7d610606cbcd10a1d08b3"},
+    {file = "jupyter_builder-1.2.3.tar.gz", hash = "sha256:01aba6794eb9b19e0e29ae21137ca60ba4135c70347d4b9f664a586822b8c809"},
 ]
 
 [package.dependencies]
@@ -1354,14 +1373,14 @@ test = ["copier (>=9.3,<10)", "coverage[toml] (>=7.10.6)", "deptry", "jinja2-tim
 
 [[package]]
 name = "jupyter-client"
-version = "8.9.1"
+version = "8.10.0"
 description = "Jupyter protocol implementation and client libraries"
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "jupyter_client-8.9.1-py3-none-any.whl", hash = "sha256:0b7a295bc46e8751e9adae84781f726c851c1d911bd793edc4a3bde942e3da81"},
-    {file = "jupyter_client-8.9.1.tar.gz", hash = "sha256:a58f730dd9e728ba16ba1d62ebccf7ffe1ebbdbce4e95cfae941b7321ae1f4fa"},
+    {file = "jupyter_client-8.10.0-py3-none-any.whl", hash = "sha256:5f73f24f22fa25192cfff6b23c051932a2473a797b05734aff495b392103e14e"},
+    {file = "jupyter_client-8.10.0.tar.gz", hash = "sha256:9f7116294dca55f1785be880057d44544db9b1567718d92cb33c58886afb9497"},
 ]
 
 [package.dependencies]
@@ -1441,14 +1460,14 @@ jupyter_server = ">=1.1.2"
 
 [[package]]
 name = "jupyter-server"
-version = "2.20.0"
+version = "2.21.0"
 description = "The backend—i.e. core services, APIs, and REST endpoints—to Jupyter web applications."
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "jupyter_server-2.20.0-py3-none-any.whl", hash = "sha256:c3b67c93c471e947c18b5026f04f21614218adb706df8f48227d3ee8e0a7cdcc"},
-    {file = "jupyter_server-2.20.0.tar.gz", hash = "sha256:b5778ba337d8015a3dc2b80803ecdd5ac18d3797fddf61a50ea5fb472b4ebe14"},
+    {file = "jupyter_server-2.21.0-py3-none-any.whl", hash = "sha256:2ae2e5ce5e97268553e25aebe040197455673d925b5fc7995477153318160cf7"},
+    {file = "jupyter_server-2.21.0.tar.gz", hash = "sha256:70d9a1883f57d3576ea17f4ce061ec1a7aad7ef388d00428cfb7f5e4f0022271"},
 ]
 
 [package.dependencies]
@@ -2668,20 +2687,20 @@ files = [
 
 [[package]]
 name = "protobuf"
-version = "7.36.0"
+version = "7.36.1"
 description = ""
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "protobuf-7.36.0-cp310-abi3-macosx_10_9_universal2.whl", hash = "sha256:9103532dffd80c6fab7e50c65a31007680a06eb57537d437bb1b35812c138a37"},
-    {file = "protobuf-7.36.0-cp310-abi3-manylinux2014_aarch64.whl", hash = "sha256:bf94a5917c71058262de683669bc0a797a7669d3de71f0b36d058e3194f47b44"},
-    {file = "protobuf-7.36.0-cp310-abi3-manylinux2014_s390x.whl", hash = "sha256:3297e60abdff301e5f74393d87f6cc59dacab5f024a89548a6e8de1d26576b16"},
-    {file = "protobuf-7.36.0-cp310-abi3-manylinux2014_x86_64.whl", hash = "sha256:70f5ec8eb0da81a44360c0dc0beac99a0d78071d21956a7076bae8bd2051841b"},
-    {file = "protobuf-7.36.0-cp310-abi3-win32.whl", hash = "sha256:7326fd717bdc419162a735938d89d4032332bcc3408804012b24ff3a37086071"},
-    {file = "protobuf-7.36.0-cp310-abi3-win_amd64.whl", hash = "sha256:1781cc1de61249b750848029bca452c0a8b7e990080316b9bbc2518b2117b488"},
-    {file = "protobuf-7.36.0-py3-none-any.whl", hash = "sha256:53374d53fc29a67f7dbbf0ade47d7526a0f0137bf0f9c90e48d8a60790ef748c"},
-    {file = "protobuf-7.36.0.tar.gz", hash = "sha256:e8e09cb0d794c6687926fa558a8a6e72aa10edb997d5ca61da0765f12a3e00ea"},
+    {file = "protobuf-7.36.1-cp310-abi3-macosx_10_9_universal2.whl", hash = "sha256:3cf2ee25d006cee57294a1196ea43b37feb78e0dcd1e8af5c1aeddb777655aca"},
+    {file = "protobuf-7.36.1-cp310-abi3-manylinux2014_aarch64.whl", hash = "sha256:43d3d37b1eb24c113b9b7d02008cac44e423f00b611b7781ae998d7623972969"},
+    {file = "protobuf-7.36.1-cp310-abi3-manylinux2014_s390x.whl", hash = "sha256:39c518c05586c016d7874ff6079ee115bcec1ea5fbb1d177fbf7867ef4c67e44"},
+    {file = "protobuf-7.36.1-cp310-abi3-manylinux2014_x86_64.whl", hash = "sha256:97198b77e369a0abd8e262b8f6c7266c55ddb796a3a12c76d7b8881188ed83aa"},
+    {file = "protobuf-7.36.1-cp310-abi3-win32.whl", hash = "sha256:0b53ce95272aad50ad25d7ff03373743209822e8ba42ea7fad27d2bee1547d00"},
+    {file = "protobuf-7.36.1-cp310-abi3-win_amd64.whl", hash = "sha256:51139351435d9b43d88a55eaa49fb6f737fbb478fb0cbf2cf694d1a04a9d3363"},
+    {file = "protobuf-7.36.1-py3-none-any.whl", hash = "sha256:7d951e46b3f963d6c264c367c437921de9d5aedd9c3f9612b9077736b4e3ad5c"},
+    {file = "protobuf-7.36.1.tar.gz", hash = "sha256:d0f6470f0ce2b84e3feaea2d4b816378b37ba4d4aa08a274305373de93e2d524"},
 ]
 
 [[package]]
@@ -3689,14 +3708,14 @@ zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
 name = "wcwidth"
-version = "0.8.2"
+version = "0.8.3"
 description = "Measures the displayed width of unicode strings in a terminal"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
 files = [
-    {file = "wcwidth-0.8.2-py3-none-any.whl", hash = "sha256:d63947694a0539a1d51e01eda7caf800c291020e6cdd7e28ad7b14dd33ad4f85"},
-    {file = "wcwidth-0.8.2.tar.gz", hash = "sha256:91fbef97204b96a3d4d421609b80340b760cf33e26da123ff243d76b1fda8dda"},
+    {file = "wcwidth-0.8.3-py3-none-any.whl", hash = "sha256:d5b73dba6158a595ec9370350e7f2637bcac8d6c5e4fde34f30fcffb6103a5e4"},
+    {file = "wcwidth-0.8.3.tar.gz", hash = "sha256:d128512515fbf4612e0ff21fd6380399210318b7b54a9af59dff8454cf9730eb"},
 ]
 
 [[package]]
@@ -3729,14 +3748,14 @@ test = ["pytest", "ruff"]
 
 [[package]]
 name = "websocket-client"
-version = "1.9.0"
+version = "1.9.2"
 description = "WebSocket client for Python with low level API options"
 optional = false
-python-versions = ">=3.9"
+python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "websocket_client-1.9.0-py3-none-any.whl", hash = "sha256:af248a825037ef591efbf6ed20cc5faa03d3b47b9e5a2230a529eeee1c1fc3ef"},
-    {file = "websocket_client-1.9.0.tar.gz", hash = "sha256:9e813624b6eb619999a97dc7958469217c3176312b3a16a4bd1bc7e08a46ec98"},
+    {file = "websocket_client-1.9.2-py3-none-any.whl", hash = "sha256:e1a673830a9c7bfa47b1cd3d5e4178f4c9651d80a4eab02c9c23a1c3ec6250ce"},
+    {file = "websocket_client-1.9.2.tar.gz", hash = "sha256:0fcb57545848be86992e128218fd96dd87a6769ffdb1a968dff79632b85604d0"},
 ]
 
 [package.extras]
