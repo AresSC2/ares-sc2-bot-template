@@ -18,12 +18,6 @@ Debug: False
 GameStep: 2
 DebugGameStep: 2
 
-# Turn ares features on/off for performance reasons
-Features:
-    # this grid is useful for disruptor balls and maybe some other uses
-    # off by default to save computation
-    TacticalGroundGrid: False
-
 DebugOptions:
     # one of: Air, AirVsGround, Ground, GroundAvoidance, AirAvoidance
     ActiveGrid: TacticalGround
@@ -32,3 +26,69 @@ DebugOptions:
     ShowPathingCost: True
     ResourceDebug: False
     ShowBuildingFormation: False
+
+# Turn ares features on/off for performance reasons
+Features:
+    # this grid is useful for disruptor balls and maybe some other uses
+    # off by default to save computation
+    TacticalGroundGrid: False
+    # if False, grids keep their initial state and no per-step influence updates run
+    UpdateGrids: True
+
+Building:
+    # how many seconds before giving up on a construction order?
+    CancelOrder: 18
+
+Placement:
+    # if False, no initial placement calculation is performed
+    # and `request_building_placement` / `BuildStructure / build order runner`
+    # will not work
+    CalculatePlacements: True
+    # when requesting a placement, location is locked from being selected
+    # this allows the placement to become available again
+    WorkerOnRouteTimeout: 60.0
+
+Distances:
+    FlyingEnemyNearBases: 20.
+    GroundEnemyNearBases: 15.
+    GroundEnemyLeavingBases: 24.
+    FlyingEnemyLeavingBases: 22.
+
+Mining:
+    GeyserDistanceFactor: 1.05
+    GeyserThreshold: 0.05
+    MineralDistanceFactor: 1.25
+    TownhallDistanceFactor: 1.08
+
+Pathing:
+    # amount of extra buffer to add to unit/structure ranges
+    RangeBuffer: 4.0
+    EffectsRangeBuffer: 1.0
+    CostMultiplier: 1
+    # amount of pathing cost to add for each effect and their range
+    Effects:
+        BlindingCloud:
+            Cost: 300
+            Range: 3.5
+        CorrosiveBile:
+            Cost: 100
+            Range: 3.0
+        KD8Charge:
+            Cost: 10
+            Range: 4.5
+        LiberatorZone:
+            Cost: 500
+            Range: 6
+        LurkerSpine:
+            Cost: 600
+            Range: 1
+        Nuke:
+            Cost: 1000
+            Range: 8
+        ParasiticBomb:
+            Cost: 17.15  # roughly 120 / 7
+            Range: 4
+        Storm:
+            Cost: 600
+            Range: 3.5
+
